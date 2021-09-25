@@ -2,7 +2,7 @@
 
 @section('title', $title)
 
-
+@section('content')
 <div class="container-fluid m-5 p-5">
     <h1>ログイン</h1>
     @foreach($errors->all() as $error)
@@ -32,4 +32,4 @@
     </div>
 </div>
 
-@section('content')
+@endsection
