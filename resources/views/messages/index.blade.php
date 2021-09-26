@@ -20,6 +20,19 @@
                         <input type="text" class="form-control" id="title" name="title">
                         <label for="message" class="m-1">メッセージ</label>
                         <textarea class="form-control" id="message" name="message" rows="5"></textarea>
+                        <p class="m-1">カードカラー</p>
+                        <div class="form-check form-check-inline">
+                            <label class="form-check-label"><input class="form-check-input" name="card_color_id" type="radio" value="1" checked="checked">青</label>     
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <label class="form-check-label"><input class="form-check-input" name="card_color_id" type="radio" value="2">赤</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <label class="form-check-label"><input class="form-check-input" name="card_color_id" type="radio" value="3">黄</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <label class="form-check-label"><input class="form-check-input" name="card_color_id" type="radio" value="4">緑</label>
+                        </div>
                     </div>
                     <div class="modal-fotter">
                         <div class="text-right mr-5">
@@ -42,8 +55,19 @@
    <div class="row" style="width: 900px;">
        @forelse($messages as $message)
        <div class="col-4">
+           @if ($message->card_color_id === 1)
            <div class="card border-primary m-2">
                <h4 class="card-header bg-primary text-white p-2">{{ $message->title }}</h4>
+            @elseif ($message->card_color_id === 2 )
+            <div class="card border-danger m-2">
+               <h4 class="card-header bg-danger text-white p-2">{{ $message->title }}</h4>
+            @elseif ($message->card_color_id === 3 )
+            <div class="card border-warning m-2">
+               <h4 class="card-header bg-warning text-secondary p-2">{{ $message->title }}</h4>
+            @elseif ($message->card_color_id === 4 )
+            <div class="card border-success m-2">
+               <h4 class="card-header bg-success text-white p-2">{{ $message->title }}</h4>
+            @endif
                <div class="card-body p-1">
                    <p>{{ $message->message }}</p>
                    <p class="text-right text-secondary m-0">更新: {{ $message->updated_at }}</p>
@@ -91,6 +115,19 @@
                                 <input type="text" class="form-control" id="title" name="title" value="{{ $message->title }}">
                                 <label for="message" class="m-1">メッセージ</label>
                                 <textarea class="form-control" id="message" name="message" rows="5">{{ $message->message }}</textarea>
+                                <p class="m-1">カードカラー</p>
+                                <div class="form-check form-check-inline">
+                                    <label class="form-check-label"><input class="form-check-input" name="card_color_id" type="radio" value="1" checked="checked">青</label>     
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <label class="form-check-label"><input class="form-check-input" name="card_color_id" type="radio" value="2">赤</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <label class="form-check-label"><input class="form-check-input" name="card_color_id" type="radio" value="3">黄</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <label class="form-check-label"><input class="form-check-input" name="card_color_id" type="radio" value="4">緑</label>
+                                </div>
                             </div>
                             <div class="modal-fotter">
                                 <div class="text-right mr-5">
