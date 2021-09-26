@@ -42,11 +42,13 @@ class MessagesController extends Controller
         return $messages;
     }
     
+    // メッセージインサート
     public function create(Request $request){
         // バリデーション
         $this->validate($request,[
            'title' => 'required',
            'message' => 'required',
+           'card_color_id' => 'required|integer', 
         ]);
         
         //DBインサート
@@ -55,6 +57,7 @@ class MessagesController extends Controller
             'message' => Crypt::encryptString($request->input('message')),
             'group_id'=> Auth::id(),
             'status' => 0,
+            'card_color_id' => $request->input('card_color_id'),
         ]);
         
         // 保存
@@ -85,12 +88,14 @@ class MessagesController extends Controller
             'id' => 'required|integer',
             'title' => 'required',
             'message' => 'required',
+            'card_color_id' => 'required|integer',
         ]);
         // DBアップデート
         $message = new Message;
         $message->where('id', $request->input('id'))->update([
             'title' => Crypt::encryptString($request->input('title')),
             'message' => Crypt::encryptString($request->input('message')),
+            'card_color_id' => $request->input('card_color_id'),
         ]);
         // 保存
         $message->update();
