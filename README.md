@@ -7,7 +7,7 @@ PC操作に慣れていない人でも使える情報共有ツールが欲しい
 ![messages](https://user-images.githubusercontent.com/89786344/134683875-14cdf389-13e3-4b97-9ad0-633c72003aac.png)
 # 使用技術
 * HTML5/CSS3
-* PHP5.5
+* PHP7.3
 * MySQL5.5
 * Laravel8.6
 * Bootstrap4
